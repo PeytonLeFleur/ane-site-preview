@@ -225,6 +225,16 @@ h1,h2,h3{font-family:var(--serif);color:var(--wine-dark)}
 .pdf-panel{border:1px solid var(--line);padding:40px;display:flex;flex-direction:column;gap:28px;background:var(--cream);align-self:start}
 .pdf-panel .method-label{letter-spacing:.18em;font-size:12px}
 
+/* Intro blocks with a photo (Contact, policy pages, 404): text left, photo right, photo resting on the bottom rule. */
+.has-photo{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:48px;align-items:end;padding-bottom:0!important}
+.has-photo .intro-text{display:flex;flex-direction:column;gap:inherit;align-self:center;padding-bottom:clamp(40px,5vw,64px)}
+.page-intro.has-photo .intro-text{gap:24px}
+.doc-intro.has-photo .intro-text{gap:20px}
+.not-found.has-photo .intro-text{gap:28px}
+.intro-photo{margin:0;border-left:1px solid var(--line);align-self:end;aspect-ratio:16/9;position:relative;overflow:hidden}
+.intro-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.not-found.has-photo{padding-top:clamp(48px,6vw,88px)}
+
 /* Mobile: the sticky sidebar would cover the text once it wraps above it, so it becomes a collapsible list. */
 @media (max-width:900px){
   .toc{position:static;flex:1 1 100%;max-height:none;overflow:visible;padding-right:0}
@@ -236,7 +246,7 @@ h1,h2,h3{font-family:var(--serif);color:var(--wine-dark)}
   .toc nav a{font-size:14px;padding:4px 0}
   .doc-layout{padding-top:40px;gap:32px}
 }
-@media (max-width:1215px){.hero-media{border-left:0;border-top:1px solid var(--line)}.principles span+span{border-left:0;border-top:1px solid var(--line);padding-left:0}}
+@media (max-width:1215px){.has-photo{gap:0}.intro-photo{border-left:0}.hero-media{border-left:0;border-top:1px solid var(--line)}.principles span+span{border-left:0;border-top:1px solid var(--line);padding-left:0}}
 @media (max-width:600px){
   .principles span{padding:16px 0;font-size:22px}
   .hero-media,.about-hero .hero-media{min-height:300px}
